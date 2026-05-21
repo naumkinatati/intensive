@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="type" value="app" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест: что забирает у вас силы — Татьяна Наумкина</title>
+  <meta name="description" content="Узнайте, что именно незаметно забирает у вас силы каждый день. 20 вопросов — личный сценарий в результате."/>
+  <meta property="og:title" content="Тест: что незаметно забирает у вас силы"/>
+  <meta property="og:description" content="20 вопросов. Ответы да/нет. Личный сценарий в результате."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --sand: #E8E0D4;
+  --taupe: #C4B8A8;
+  --brown: #8B7355;
+  --dark: #2C2416;
+  --text: #3D3328;
+  --muted: #7A6E62;
+  --accent: #C17F4A;
+  --accent-light: #F0DCC8;
+  --accent-dark: #A06535;
+  --green: #4A7A5A;
+  --green-light: #E6F0EB;
+  --font-d: 'Cormorant Garamond', Georgia, serif;
+  --font-b: 'DM Sans', system-ui, sans-serif;
+  --rc: 20px;
+  --mw: 720px;
+  --shadow: 0 4px 32px rgba(44,36,22,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);font-size:1.1rem;color:var(--text);background:var(--warm-white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,253,249,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,.22)}
+.nav-logo{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--dark)}
+.nav-logo em{color:var(--accent);font-style:italic}
+.nav-back{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+
+/* Hero */
+.quiz-hero{padding:110px 32px 56px;max-width:var(--mw);margin:0 auto;text-align:center}
+.quiz-tag{display:inline-flex;align-items:center;gap:6px;background:var(--accent-light);color:var(--accent-dark);padding:5px 16px;border-radius:100px;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.quiz-hero h1{font-family:var(--font-d);font-size:clamp(2.4rem,5vw,3.6rem);color:var(--dark);line-height:1.12;margin-bottom:18px;font-weight:700}
+.quiz-hero h1 em{color:var(--accent);font-style:italic}
+.quiz-hero p{font-size:1.15rem;color:var(--muted);max-width:540px;margin:0 auto 32px;line-height:1.75;font-weight:300}
+.quiz-meta{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.quiz-meta-item{display:flex;align-items:center;gap:7px;font-size:.95rem;color:var(--muted)}
+.quiz-meta-item i{color:var(--accent);font-size:.85rem}
+
+/* Progress */
+.progress-wrap{max-width:var(--mw);margin:0 auto;padding:0 32px 40px}
+.progress-bar-track{height:4px;background:var(--sand);border-radius:100px;overflow:hidden;margin-bottom:10px}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-dark));border-radius:100px;transition:width .4s ease;width:0%}
+.progress-label{font-size:.9rem;color:var(--muted);text-align:right}
+
+/* Questions */
+.questions-wrap{max-width:var(--mw);margin:0 auto;padding:0 32px 80px}
+.question-item{background:#fff;border:1.5px solid var(--sand);border-radius:20px;padding:28px 28px 22px;margin-bottom:16px;transition:border-color .3s,box-shadow .3s}
+.question-item.answered{border-color:rgba(193,127,74,.35);background:linear-gradient(180deg,#fff 0%,#FDFAF6 100%)}
+.question-num{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);margin-bottom:10px}
+.question-text{font-size:1.1rem;color:var(--dark);line-height:1.6;margin-bottom:20px;font-weight:400}
+.question-btns{display:flex;gap:10px}
+.q-btn{flex:1;padding:12px 20px;border-radius:12px;border:1.5px solid var(--sand);background:#fff;font-family:var(--font-b);font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;color:var(--muted)}
+.q-btn:hover{border-color:var(--accent);color:var(--accent)}
+.q-btn.selected-yes{background:var(--accent);border-color:var(--accent);color:#fff}
+.q-btn.selected-no{background:var(--cream);border-color:var(--sand);color:var(--muted)}
+
+/* Submit */
+.quiz-submit-wrap{max-width:var(--mw);margin:0 auto;padding:0 32px 100px;text-align:center}
+.quiz-submit-hint{font-size:1rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.quiz-submit-hint span{color:var(--accent);font-weight:500}
+.btn-submit{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:none;padding:18px 48px;border-radius:100px;font-family:var(--font-b);font-size:1.15rem;font-weight:600;cursor:pointer;transition:all .25s;opacity:.4;pointer-events:none;box-shadow:0 4px 20px rgba(193,127,74,.3)}
+.btn-submit.ready{opacity:1;pointer-events:all}
+.btn-submit.ready:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.38)}
+
+/* Footer */
+footer{background:#1A1208;padding:28px 40px;display:flex;justify-content:center;align-items:center}
+.foot-text{font-size:.9rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:600px){
+  .quiz-hero{padding:96px 20px 40px}
+  .progress-wrap{padding:0 20px 32px}
+  .questions-wrap{padding:0 20px 60px}
+  .quiz-submit-wrap{padding:0 20px 80px}
+  .question-item{padding:22px 20px 18px}
+  nav{padding:14px 20px}
+  .quiz-meta{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><em>Можно жить</em></div>
+  <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> На сайт</a>
+</nav>
+
+<div class="quiz-hero">
+  <div class="quiz-tag"><i class="fa-solid fa-circle-dot"></i> Бесплатный тест</div>
+  <h1>Что незаметно<br>забирает у вас <em>силы</em><br>каждый день?</h1>
+  <p>Отвечайте честно — так, как есть на самом деле, а не как хотелось бы. В результате — личный сценарий и маршрут.</p>
+  <div class="quiz-meta">
+    <div class="quiz-meta-item"><i class="fa-solid fa-list-check"></i> 20 вопросов</div>
+    <div class="quiz-meta-item"><i class="fa-regular fa-clock"></i> 3–4 минуты</div>
+    <div class="quiz-meta-item"><i class="fa-solid fa-lock"></i> Ответы только у вас</div>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">0 из 20</div>
+</div>
+
+<div class="questions-wrap" id="questionsWrap"></div>
+
+<div class="quiz-submit-wrap">
+  <p class="quiz-submit-hint" id="submitHint">Ответьте на все вопросы — осталось <span id="remaining">20</span></p>
+  <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">
+    Узнать мой результат <i class="fa-solid fa-arrow-right"></i>
+  </button>
+</div>
+
+<footer><div class="foot-text">© Татьяна Наумкина</div></footer>
+
+<script>
+const questions = [
+  // Блок А — Тревога и контроль
+  {block:'A', text:'Вы прокручиваете в голове разговоры, которые уже прошли, — анализируете, правильно ли сказали, не обидели ли кого-то, не сделали ли что-то не так.'},
+  {block:'A', text:'Перед важным событием вы заранее продумываете, что может пойти не так, — даже если поводов для этого нет.'},
+  {block:'A', text:'Когда всё спокойно и дел немного, вам всё равно трудно расслабиться — как будто вы ждёте, что вот-вот что-то случится.'},
+  {block:'A', text:'Вы проверяете телефон, сообщения или рабочую почту не потому что ждёте чего-то конкретного, а просто чтобы убедиться, что всё в порядке.'},
+  {block:'A', text:'Когда вы ложитесь спать, мысли продолжают крутиться — дела, разговоры, то, что нужно сделать завтра.'},
+  // Блок Б — Гиперответственность
+  {block:'B', text:'Когда вам нужно попросить о помощи, вы чаще предпочитаете сделать сами — потому что проще, быстрее или потому что другие сделают не так.'},
+  {block:'B', text:'Если вы сделали что-то недостаточно хорошо, вам трудно отпустить это — вы возвращаетесь к этому мысленно и продолжаете себя критиковать.'},
+  {block:'B', text:'Вы соглашаетесь на просьбы других, даже когда у вас нет сил или времени, — потому что отказать неловко или потому что вы не можете подвести.'},
+  {block:'B', text:'Вы замечаете, что тратите на чужие задачи, проблемы или потребности больше времени и сил, чем на свои собственные.'},
+  {block:'B', text:'Вы ждёте, что окружающие заметят, как много вы делаете и как вам тяжело, — но они не замечают, и это злит или обижает.'},
+  // Блок В — Молчание
+  {block:'C', text:'Когда вы не согласны с чем-то или вас что-то задевает, вы чаще промолчите или согласитесь, чем скажете об этом прямо.'},
+  {block:'C', text:'После того как вы сдержались и не сказали то, что хотели, вы чувствуете раздражение, обиду или усталость — даже если внешне всё выглядело нормально.'},
+  {block:'C', text:'Вам бывает физически трудно говорить о своих желаниях, потребностях или недовольстве — как будто слова застревают или вы не находите нужного момента.'},
+  {block:'C', text:'Вы делаете вид, что всё хорошо, даже когда это не так, — потому что не хотите создавать напряжение или расстраивать других.'},
+  {block:'C', text:'Злость, обида или усталость накапливаются внутри, а потом выходят не в нужный момент и не так, как вы хотели бы.'},
+  // Блок Г — Истощение
+  {block:'D', text:'Вы не можете вспомнить, когда последний раз просыпались с ощущением, что по-настоящему выспались и восстановились.'},
+  {block:'D', text:'После выходных или отпуска вы возвращаетесь к делам примерно в том же состоянии, в каком уходили на отдых — без ощущения, что перезарядились.'},
+  {block:'D', text:'Вы живёте в режиме «надо дотерпеть до выходных» или «надо дотерпеть до отпуска» — но когда это время наступает, облегчение либо не приходит, либо быстро проходит.'},
+  {block:'D', text:'Вы замечаете, что стали острее реагировать на мелочи — резче отвечать, быстрее раздражаться — и потом удивляетесь собственной реакции.'},
+  {block:'D', text:'Когда появляется свободное время, вам трудно им воспользоваться: внутри всё равно крутятся дела, тревоги или ощущение, что отдыхать сейчас неуместно.'},
+];
+
+const answers = new Array(20).fill(null);
+
+const resultPages = {
+  A: 'result1.html',
+  B: 'result2.html',
+  C: 'result3.html',
+  D: 'result4.html',
+};
+
+function renderQuestions() {
+  const wrap = document.getElementById('questionsWrap');
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'question-item';
+    div.id = 'q' + i;
+    div.innerHTML = `
+      <div class="question-num">Вопрос ${i + 1}</div>
+      <div class="question-text">${q.text}</div>
+      <div class="question-btns">
+        <button class="q-btn" id="yes${i}" onclick="answer(${i}, true)">Да</button>
+        <button class="q-btn" id="no${i}" onclick="answer(${i}, false)">Нет</button>
+      </div>`;
+    wrap.appendChild(div);
+  });
+}
+
+function answer(idx, val) {
+  answers[idx] = val;
+  const qEl = document.getElementById('q' + idx);
+  qEl.classList.add('answered');
+  document.getElementById('yes' + idx).className = 'q-btn' + (val ? ' selected-yes' : '');
+  document.getElementById('no' + idx).className = 'q-btn' + (!val ? ' selected-no' : '');
+  updateProgress();
+}
+
+function updateProgress() {
+  const done = answers.filter(a => a !== null).length;
+  const pct = Math.round(done / 20 * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = done + ' из 20';
+  const rem = 20 - done;
+  const btn = document.getElementById('submitBtn');
+  const hint = document.getElementById('submitHint');
+  if (done === 20) {
+    btn.classList.add('ready');
+    hint.innerHTML = 'Все вопросы отвечены — смотрите результат';
+  } else {
+    btn.classList.remove('ready');
+    hint.innerHTML = `Ответьте на все вопросы — осталось <span id="remaining">${rem}</span>`;
+  }
+}
+
+function submitQuiz() {
+  const scores = {A: 0, B: 0, C: 0, D: 0};
+  questions.forEach((q, i) => {
+    if (answers[i] === true) scores[q.block]++;
+  });
+  // Найти блок с максимальным количеством "да"
+  // При равных — тот, чья буква меньше (A > B > C > D по приоритету первого блока)
+  const order = ['A', 'B', 'C', 'D'];
+  let winner = order[0];
+  for (const block of order) {
+    if (scores[block] > scores[winner]) winner = block;
+  }
+  window.location.href = resultPages[winner];
+}
+
+renderQuestions();
+updateProgress();
+</script>
+</body>
+</html>
